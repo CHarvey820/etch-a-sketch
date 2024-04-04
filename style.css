@@ -30,8 +30,13 @@ button {
   cursor: pointer;
 }
 
+button:hover{
+    background-color: rgb(65, 53, 112);
+}
+
 span{
     position: absolute;
+    color: white;
     margin-right: 400px;
     pointer-events: none;
 }
@@ -70,7 +75,7 @@ input{
 }
 
 #colorPicker{
-    border: 1px solid rgba(223, 210, 235, 0.397);
+    border: 2px solid white;
     height: 3.125rem;
     width: 25%;
     border-radius: .5rem;
