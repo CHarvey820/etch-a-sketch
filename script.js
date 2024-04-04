@@ -10,7 +10,7 @@ const GRID_VALUE_DEFAULT = 4;
 
 let gridValue = GRID_VALUE_DEFAULT;
 
-//initialize();
+initialize();
 
 /**------------------------------- FUNCTIONS ----------------------------------------------------------------------------------------------------------  */
 
@@ -71,15 +71,15 @@ function checkValidGridValue(userGridValue){
     }
 }
 
-// // quick fix for GitHub pages not rendering DOMContentLoaded action correctly
-// function initialize(){
-//     resetGrid();
-//     createGrid(GRID_VALUE_DEFAULT);
-//     colorPicker.value = "#000000";
-//     span.style.color = "white";
-//     colorPicker.style.border = "2px solid white";
-//     randomize.checked = false;
-// }
+// quick fix for GitHub pages not rendering DOMContentLoaded action correctly
+function initialize(){
+    resetGrid();
+    createGrid(GRID_VALUE_DEFAULT);
+    colorPicker.value = "#000000";
+    span.style.color = "white";
+    colorPicker.style.border = "2px solid white";
+    randomize.checked = false;
+}
 
 /**------------------------------- EVENT LISTENERS ----------------------------------------------------------------------------------------------------------  */
 
