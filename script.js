@@ -2,16 +2,18 @@ const gridContainer = document.querySelector("#grid");
 const colorPicker = document.querySelector("#colorPicker");
 const span = document.querySelector("#colorText");
 const resizeBtn = document.querySelector("#resizeGridBtn");
+const clearBtn = document.querySelector("#clearGridBtn");
+const randomize = document.querySelector("#randomize");
 
 const GRID_CONTAINER_WIDTH = 600;
 const GRID_VALUE_DEFAULT = 4;
 
-let gridValue = 4;
+let gridValue = GRID_VALUE_DEFAULT;
 
 /**------------------------------- FUNCTIONS ----------------------------------------------------------------------------------------------------------  */
 
 /**
- * Creates a new grid of rows with sqaures based on given grid value
+ * Creates a new grid of rows with squares based on given grid value
  * @param {any} gridValue user prompted value for grid resize
  * @returns {any}
  */
@@ -26,6 +28,15 @@ function createGrid(gridValue) {
       newSquare.className = "square";
       newSquare.style.width = `${GRID_CONTAINER_WIDTH / gridValue}px`;
       row.appendChild(newSquare);
+      newSquare.addEventListener("mouseover", () => {
+        if (randomize.checked) {
+            //https://css-tricks.com/snippets/javascript/random-hex-color/
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            newSquare.style.background = `#${randomColor}`;
+         } else {
+            newSquare.style.background = `${colorPicker.value}`;
+         }
+      });
     }
   }
 }
@@ -71,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   colorPicker.value = "#000000";
   span.style.color = "white";
   colorPicker.style.border = "2px solid white";
+  randomize.checked = false;
 });
 
 /**
@@ -88,6 +100,18 @@ resizeBtn.addEventListener("click", () => {
   resetGrid();
   createGrid(gridValue);
 });
+
+/**
+ * Clears the current grid, reset and create new grid with same gridValue
+ * @param {any} "click"
+ * @param {any} (
+ * @returns {any}
+ */
+clearBtn.addEventListener("click", () => {
+    resetGrid();
+    createGrid(gridValue);
+});
+
 
 /**
  * Changes the color of the input span text and input background to white or black, depending on the contrast of the background color to improve readability
@@ -110,3 +134,4 @@ colorPicker.onchange = () => {
   span.style.color = colorValue;
   colorPicker.style.border = `2px solid ${colorValue}`;
 };
+
