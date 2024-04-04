@@ -1,0 +1,93 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(19, 155, 155);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button {
+  height: 3.125rem;
+  width: 25%;
+  color: white;
+  background-color: rgb(122, 109, 175);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+span{
+    position: absolute;
+    margin-right: 400px;
+    pointer-events: none;
+}
+
+input{
+    cursor: pointer;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 750px;
+  gap: 2rem;
+  background-color: rgba(223, 210, 235, 0.397);
+  border-radius: 1rem;
+}
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 600px;
+  background-color: white;
+}
+
+#tools {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+  height: 50px;
+  padding-bottom: 0;
+}
+
+#colorPicker{
+    border: 1px solid rgba(223, 210, 235, 0.397);
+    height: 3.125rem;
+    width: 25%;
+    border-radius: .5rem;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.square {
+  border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+.hidden {
+  opacity: 0;
+  width: 100px;
+  position: absolute;
+}
+
